@@ -1,65 +1,105 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/wallet.svg" alt="FinFlow Logo" width="80" height="80">
-
-  # Finance Dashboard UI
-
-  **An interactive, premium, role-based personal finance dashboard.**
-  Built specifically to fulfill frontend evaluation criteria, highlighting robust UI/UX design, modular architecture, and advanced React state management.
-
-  ### 🌐 **[Live Demo — Open in Browser](https://yashvrdhan.github.io/Finance-Dashboard-UI/)**
+  <h2>Finance Dashboard UI</h2>
+  <p>Track your income, expenses, and personal savings securely and efficiently.</p>
 </div>
 
 ---
 
-## 🎯 Evaluation Criteria Breakdown
+<div align="center">
+  <img src="screenshots/dashboard-dark.png" alt="Finance Dashboard Preview" />
+</div>
 
-This dashboard was engineered to strictly satisfy the provided assessment metrics. Below is an overview of how each constraint was met.
+---
 
-### 1. Design and Creativity 🎨
-- **Visual Quality:** Implemented a modern "glassmorphism" aesthetic devoid of third-party CSS frameworks. Entirely custom CSS utilizing tailored `hsl` color grading guarantees a premium visual impression across both standard and retina displays.
-- **Dynamic Themes:** Included an elegant Dark Mode toggle seamlessly mapped via CSS variables (`--bg-primary`, `--text-inverse`, etc.)
-- **Intuitive Presentation:** Complex numerical data is naturally sectioned. Savings rates are animated using `react-countup`, and dashboard summaries rely on progressive disclosure and clean typographical hierarchy (Inter + Space Grotesk).
+### 📝 Table of Contents
+- [✨ Features](#-features)
+- [📁 Folder Structure](#-folder-structure)
+- [📷 Screenshots](#-screenshots)
+- [⚙️ Tech Stack](#️-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [🏗️ State Management](#️-state-management)
 
-### 2. Responsiveness 📱
-- **Adaptive Layouts:** Built with a fluid, mobile-first CSS grid (`index.css`) that cleanly degrades on smaller viewports.
-- **Off-Canvas Navigation:** The sidebar smoothly collapses on constrained widths (transitioning labels to `opacity: 0` and collapsing flex gaps) allowing the dashboard content to consume the full viewport space without structural breakage.
+---
 
-### 3. Functionality ⚙️
-- **Dashboard Features:** All required charts implemented (Area, Bar, Line trend graphs, plus a nested categorical Donut pie chart) built dynamically using `Recharts`.
-- **RBAC Behavior (Role-Based Access Control):** A simulated Header toggle changes the user's role context structure constraint (`isAdmin`).
-  - **Viewer:** Can filter, analyze, read insights, and export `.csv`/`.json`.
-  - **Admin:** Granularly unlocked to actively Add, Edit, and Delete transactions visually updating global state and recalculating dashboard metrics live.
-- **Transactions Grid:** Pagination, sorting (asc/desc per column), Multi-Type filtering (Income/Expense/Category/Status), and wildcard string searching.
+## ✨ Features
 
-### 4. User Experience (UX) 🌟
-- **Navigation Clarity:** Persistent layout methodology (Sticky Header + Contextual Sidebar) meaning the user never loses geographical scope.
-- **Interaction Design:** Buttons feature subtle scale transforms, layered box-shadows, and curated pointer cursors. Destructive actions provide immediate non-blocking feedback through transient Toasts (`Toasts.jsx`). Insight cards dynamically shift messages (e.g. "Save more!") depending on current calculated variables.
+- **Dashboard Overview**: Highly visual cards and dual-mode charts parsing real-time analytics.
+- **Transactions Grid**: Deeply filterable and paginated arrays with built-in export triggers (`.csv` / `.json`).
+- **Role-Based Access Control**: Simulated Admin vs. Viewer permissions controlling CRUD transaction logic.
+- **Insights Engine**: Calculates complex budget behaviors, highlights categorical anomalies, and computes precise saving rates.
 
-### 5. Technical Quality 🛠️
-- **Code Structure:** Decoupled layout components (`Sidebar`, `Header`, `App`) vs Functional Components (`SummaryCards`, `Charts`, `TransactionModal`). 
-- **Modularity:** Heavy data reduction and algorithmic loops are extracted aggressively from UI files into a dedicated `mockData.js` worker structure.
-- **Scalability:** Relying on `Vite`, optimized native DOM rendering workflows, and removing bloat ensures lightning-fast compilation times.
+---
 
-### 6. State Management Approach 🚦
-- **Vanilla Over-engineering:** Intentionally avoiding Redux/Zustand logic. Built exclusively using the native **React Context API combined with `useReducer`** (`AppContext.jsx`) to showcase deep architectural competency.
-- **Immutability:** Dispatch actions (like `SET_FILTER_STATUS` or `DELETE_TRANSACTION`) cleanly reduce immutable copies.
-- **Data Persistence:** Integrated an active sync hook ensuring all state changes are constantly written downstream to browser `localStorage`, persisting user settings unconditionally between reloads.
+## 📁 Folder Structure
 
-### 7. Documentation 📚
-- **(You are reading it!)** — Contains exact startup instructions, architectural details, and mapping of features against the criteria. See *Getting Started* below.
+Here is the folder structure for this application.
 
-### 8. Attention to Detail 🔍
-- Handling edge cases such as **Empty States**: If a user clears all transactions, or searches for a term returning 0 results, an illustrated placeholder component dynamically triggers guiding them back toward data ingestion.
-- Fallback animations, SVG scalable iconography (Lucide), and micro-transitions on the sidebar toggle reinforce the completeness of the product.
+```text
+finance-dashboard/ 
+|- scripts/ 
+|-- capture.js
+|- src/ 
+|-- components/ 
+|--- Charts.jsx
+|--- Header.jsx
+|--- InsightsPanel.jsx
+|--- Sidebar.jsx
+|--- SummaryCards.jsx
+|--- Toasts.jsx
+|--- TransactionModal.jsx
+|--- TransactionsTable.jsx
+|-- context/ 
+|--- AppContext.jsx 
+|-- data/ 
+|--- mockData.js 
+|-- App.jsx
+|-- index.css
+|-- main.jsx
+|- index.html
+|- vite.config.js
+|- package.json
+```
+
+---
+
+## 📷 Screenshots
+
+### Dashboard — Light Mode
+![Dashboard Light](screenshots/dashboard-light.png)
+
+### Dashboard — Dark Mode
+![Dashboard Dark](screenshots/dashboard-dark.png)
+
+### Transactions Hub (Dark Mode)
+![Transactions](screenshots/transactions-dark.png)
+
+### Insights & Analytics (Light Mode)
+![Insights](screenshots/insights-light.png)
+
+---
+
+## ⚙️ Tech Stack
+
+This project was built utilizing un-bloated modern web technologies:
+
+- **Frontend Framework**: [React.js](https://react.dev/) (via [Vite](https://vitejs.dev/))
+- **Styling**: Vanilla CSS (`index.css` via custom Glassmorphism and CSS variables).
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Animations**: `react-countup` and Custom CSS Keyframes.
+- **State Management**: Native React `useContext` mapped directly to browser `localStorage` persistence.
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed locally.
+To get a local copy up and running, follow these simple command-line steps.
 
-### Installation & Local Run
+### Prerequisites
+
+Make sure [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/) are installed on your machine.
+
+### Installation
 
 1. **Clone the repository:**
    ```bash
@@ -67,12 +107,12 @@ Make sure you have [Node.js](https://nodejs.org/) installed locally.
    cd Finance-Dashboard-UI
    ```
 
-2. **Install dependencies:**
+2. **Install all NPM dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start up the Vite environment:**
+3. **Start the local Vite server:**
    ```bash
    npm run dev
    ```
@@ -82,16 +122,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed locally.
 
 ---
 
-## 🏗️ Folder Architecture
+## 🏗️ State Management
 
-```text
-Finance-Dashboard-UI/
-├── src/
-│   ├── components/      # (UI Components: Sidebar, Header, Modals, Overviews)
-│   ├── context/         # AppContext.jsx (Reducer engine + State Provider)
-│   ├── data/            # mockData.js (Heavy mathematics, schema mapping)
-│   ├── App.jsx          # Matrix Layout Controller
-│   └── index.css        # CSS Variable Design System
-├── vite.config.js       # Bundler Configuration
-└── index.html           # Document Base
-```
+- **Vanilla Architecting:** Built exclusively using the native **React Context API combined with `useReducer`** (`AppContext.jsx`) to showcase deep scalable competency without needing Redux or Zustand.
+- **Data Persistence:** Integrated an active sync hook ensuring all state changes are constantly written downstream to browser `localStorage`, persisting user settings unconditionally between reloads.
