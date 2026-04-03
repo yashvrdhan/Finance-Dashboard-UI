@@ -17,8 +17,6 @@
 - [🚀 Getting Started](#-getting-started)
 - [📷 Screenshots](#-screenshots)
 - [⚙️ Tech Stack](#️-tech-stack)
-- [📊 Stats](#-stats)
-- [🏗️ State Management](#️-state-management)
 
 ---
 
@@ -143,13 +141,13 @@ Now app is fully configured 👍 and you can start using this app using either o
 
 ## 📷 Screenshots
 
-### Dashboard — Dark Mode
+### Dashboard — Light Mode
 ![Dashboard Dark](screenshots/dashboard-dark.png)
 
-### Transactions Hub (Dark Mode)
+### Transactions Hub — Light Mode
 ![Transactions](screenshots/transactions-dark.png)
 
-### Insights & Analytics (Light Mode)
+### Insights & Analytics — Dark Mode
 ![Insights](screenshots/insights-light.png)
 
 ---
@@ -164,20 +162,3 @@ This project was built utilizing un-bloated modern web technologies:
 - **Charts**: [Recharts](https://recharts.org/)
 - **Animations**: `react-countup` and Custom CSS Keyframes.
 - **State Management**: Native React `useContext` mapped directly to browser `localStorage` persistence.
-
----
-
-## 📊 Stats
-
-![GitHub Repo stars](https://img.shields.io/github/stars/yashvrdhan/Finance-Dashboard-UI?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yashvrdhan/Finance-Dashboard-UI?style=social) 
-![GitHub watchers](https://img.shields.io/github/watchers/yashvrdhan/Finance-Dashboard-UI?style=social)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yashvrdhan/Finance-Dashboard-UI)
-![GitHub language count](https://img.shields.io/github/languages/count/yashvrdhan/Finance-Dashboard-UI)
-
----
-
-## 🏗️ State Management
-
-- **Vanilla Architecting:** Built exclusively using the native **React Context API combined with `useReducer`** (`AppContext.jsx`) to showcase deep scalable competency without needing Redux or Zustand.
-- **Data Persistence:** Integrated an active sync hook ensuring all state changes are constantly written downstream to browser `localStorage`, persisting user settings unconditionally between reloads.
